@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: lego-stone-kazakhstan
+    runtime: static
+    buildCommand: "echo no build step needed"
+    staticPublishPath: ./ui_kits/landing
+    pullRequestPreviewsEnabled: false
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=3600

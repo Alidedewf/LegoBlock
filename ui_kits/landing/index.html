@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LEGO STONE KAZAKHSTAN — облицовочный кирпич «Лего», Астана</title>
+<meta name="description" content="Гиперпрессованный облицовочный кирпич типа «Лего» в Астане. Кладка без раствора, ровные стены без выравнивания. М200, F100, водопоглощение ≤8%." />
+<meta name="theme-color" content="#1C1B1A" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="LEGO STONE KAZAKHSTAN — облицовочный кирпич «Лего», Астана" />
+<meta property="og:description" content="Кладка без раствора, ровные стены без выравнивания. Производство в Астане, доставка по РК. WhatsApp +7 700 000 00 00." />
+<meta property="og:locale" content="ru_KZ" />
+<!-- TODO: для красивой карточки при шеринге добавьте абсолютную ссылку на обложку 1200x630:
+     <meta property="og:image" content="https://ваш-домен/og-cover.jpg" /> -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231C1B1A'/%3E%3Cg transform='rotate(45 16 16)'%3E%3Crect x='8.5' y='8.5' width='6' height='6' fill='%23E8821E'/%3E%3Crect x='17.5' y='8.5' width='6' height='6' fill='%23E8821E'/%3E%3Crect x='8.5' y='17.5' width='6' height='6' fill='%23E8821E'/%3E%3Crect x='17.5' y='17.5' width='6' height='6' fill='%23E8821E'/%3E%3C/g%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
+<style>
+  :root{
+    --ink:#1C1B1A;        /* charcoal text / dark surfaces (not pure black) */
+    --concrete:#6B6A68;   /* secondary text */
+    --steel:#C7C5C2;      /* borders-strong / muted */
+    --paper:#F4F4F3;      /* page bg */
+    --white:#FFFFFF;      /* cards */
+    --line:#E4E3E1;       /* hairline */
+    --brand:#E8821E;      /* single accent — real logo orange */
+    --brand-ink:#7A4410;  /* text on brand tints */
+    --font-display:'Golos Text',-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+    --font-body:'Inter',-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+    --container:1200px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--font-body);color:var(--ink);background:var(--paper);
+    line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--container);margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:var(--font-display);letter-spacing:-0.02em;line-height:1.1;font-weight:800}
+  a{color:inherit;text-decoration:none}
+  img{display:block;width:100%;height:100%;object-fit:cover}
+
+  /* buttons — single accent, sharp corners, dark text on orange */
+  .btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-body);
+    font-weight:600;font-size:15px;padding:13px 22px;border-radius:0;cursor:pointer;
+    border:1px solid transparent;transition:transform .12s ease,background .15s ease}
+  .btn:active{transform:translateY(1px)}
+  .btn-brand{background:var(--brand);color:var(--ink)}
+  .btn-brand:hover{background:#d9760f}
+  .btn-outline{background:transparent;color:var(--ink);border-color:var(--steel)}
+  .btn-outline:hover{border-color:var(--ink)}
+
+  /* header */
+  header{position:sticky;top:0;z-index:50;background:var(--ink);height:68px;display:flex;align-items:center}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;width:100%}
+  .brand{display:flex;align-items:center;gap:11px}
+  .mark{width:30px;height:30px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center}
+  .mark .grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5px;transform:rotate(45deg)}
+  .mark .grid span{width:7px;height:7px;background:var(--brand);display:block}
+  .brand b{color:var(--paper);font-family:var(--font-display);font-weight:800;letter-spacing:.12em;font-size:16px}
+  .brand small{color:#8A8784;font-size:12px}
+  nav{display:flex;align-items:center;gap:26px}
+  nav a{color:#AEABA7;font-size:14px;transition:color .15s}
+  nav a:hover{color:var(--paper)}
+  .lang{display:flex;border:1px solid #3A3937;border-radius:0;overflow:hidden}
+  .lang button{background:transparent;border:0;color:#8A8784;font-size:12px;font-weight:600;
+    padding:6px 9px;cursor:pointer;font-family:var(--font-body)}
+  .lang button.on{background:#2A2826;color:var(--paper)}
+  .nav-cta{display:inline-flex}
+  .burger{display:none;background:transparent;border:0;color:var(--paper);font-size:26px;cursor:pointer;align-items:center;padding:4px}
+  .mobile-menu{display:none;position:absolute;top:68px;left:0;right:0;background:var(--ink);border-top:1px solid #2A2826;flex-direction:column;z-index:49}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{color:var(--paper);font-size:16px;padding:15px 24px;border-bottom:1px solid #2A2826}
+  .mobile-menu a:active{background:#2A2826}
+  @media(min-width:981px){.mobile-menu{display:none !important}}
+
+  /* hero */
+  .hero{display:grid;grid-template-columns:1.1fr 1fr;min-height:calc(100dvh - 68px)}
+  .hero-copy{padding:64px 48px 64px 0;display:flex;flex-direction:column;justify-content:center;max-width:600px;margin-left:auto;padding-left:24px}
+  .eyebrow{color:var(--concrete);font-size:13px;margin-bottom:18px}
+  .hero h1{font-size:clamp(30px,4.4vw,52px)}
+  .checks{margin:22px 0 0;display:grid;gap:10px}
+  .checks li{list-style:none;display:flex;gap:10px;font-size:15px;color:#3A3937}
+  .checks i{color:var(--brand);font-size:20px;flex:none}
+  .hero-actions{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+  .hero-phone{color:var(--concrete);font-size:14px;margin-top:14px}
+  .hero-media{position:relative;background:#211F1D;min-height:320px}
+  .hero-media img{position:absolute;inset:0}
+  .hero-media figcaption{position:absolute;left:16px;bottom:14px;color:#cfccc8;font-size:12px;
+    background:rgba(28,27,26,.55);padding:4px 8px}
+
+  /* spec strip */
+  .specs{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .specs .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+  .spec{padding:24px;border-right:1px solid var(--line)}
+  .spec:last-child{border-right:0}
+  .spec b{display:block;font-family:var(--font-display);font-size:clamp(22px,2.4vw,30px);font-weight:800;color:var(--brand)}
+  .spec span{color:var(--concrete);font-size:13px;margin-top:6px;display:block}
+
+  /* sections */
+  section.block{padding:84px 0}
+  section[id],div.specs{scroll-margin-top:84px}
+  .head{max-width:680px;margin-bottom:44px}
+  .head h2{font-size:clamp(26px,3.2vw,40px)}
+  .head p{color:var(--concrete);font-size:17px;margin-top:14px;max-width:60ch}
+
+  .grid-6{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .feature{background:var(--paper);padding:28px 26px}
+  .feature i{font-size:28px;color:var(--brand)}
+  .feature h3{font-size:18px;margin:14px 0 8px;font-weight:700}
+  .feature p{color:var(--concrete);font-size:14.5px}
+
+  .textures{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .swatch{aspect-ratio:1;position:relative;background:#ddd;border:1px solid var(--line)}
+  .swatch span{position:absolute;left:0;bottom:0;right:0;background:rgba(28,27,26,.78);color:var(--paper);
+    font-size:12px;padding:7px 10px}
+
+  .apps{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+  .app figure{aspect-ratio:3/4;background:#ddd;border:1px solid var(--line)}
+  .app figcaption{margin-top:10px;font-size:14px;font-weight:600}
+  .objects{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .objects figure{aspect-ratio:4/3;background:#ddd;border:1px solid var(--line)}
+
+  .about{background:var(--ink);color:var(--paper)}
+  .about h2{color:var(--paper)}
+  .about .head p{color:#AEABA7}
+  .about-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#2A2826;border:1px solid #2A2826;margin-top:8px}
+  .about-cell{background:var(--ink);padding:28px 26px}
+  .about-cell i{font-size:26px;color:var(--brand)}
+  .about-cell h3{color:var(--paper);font-size:18px;margin:12px 0 8px;font-weight:700}
+  .about-cell p{color:#AEABA7;font-size:14.5px}
+
+  /* contacts */
+  .contacts .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+  form{display:grid;gap:16px}
+  .field{display:grid;gap:7px}
+  .field label{font-size:13px;color:var(--concrete);font-weight:600}
+  .field input,.field textarea{font-family:var(--font-body);font-size:15px;padding:12px 14px;
+    border:1px solid var(--steel);border-radius:0;background:var(--white);color:var(--ink)}
+  .field input:focus,.field textarea:focus{outline:2px solid var(--brand);outline-offset:0;border-color:var(--brand)}
+  .contact-list{display:grid;gap:18px;align-content:start}
+  .contact-row{display:flex;gap:14px;align-items:flex-start;padding-bottom:18px;border-bottom:1px solid var(--line)}
+  .contact-row i{font-size:22px;color:var(--brand);flex:none}
+  .contact-row b{display:block;font-size:15px}
+  .contact-row span{color:var(--concrete);font-size:14px}
+
+  footer{background:var(--ink);color:#8A8784;padding:30px 0}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-size:13px}
+
+  /* faq (native details — no JS) */
+  .faq{max-width:760px}
+  .faq-item{border-bottom:1px solid var(--line)}
+  .faq-item summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;
+    padding:20px 2px;font-family:var(--font-display);font-weight:700;font-size:18px;color:var(--ink)}
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item summary i{color:var(--brand);font-size:22px;flex:none;transition:transform .2s ease}
+  .faq-item[open] summary i{transform:rotate(45deg)}
+  .faq-a{padding:0 2px 22px;color:var(--concrete);font-size:15.5px;max-width:65ch}
+
+  /* material calculator */
+  .calc{max-width:720px;border:1px solid var(--line);background:var(--white);padding:28px}
+  .calc-input{display:grid;gap:7px;margin-bottom:20px}
+  .calc-input label{font-size:13px;color:var(--concrete);font-weight:600}
+  .calc-input input{font-family:var(--font-body);font-size:18px;padding:12px 14px;border:1px solid var(--steel);
+    border-radius:0;background:var(--white);color:var(--ink);width:180px;max-width:100%}
+  .calc-input input:focus{outline:2px solid var(--brand);outline-offset:0;border-color:var(--brand)}
+  .calc-out{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+  .calc-card{background:var(--paper);padding:18px 20px;border:1px solid var(--line)}
+  .calc-card b{display:block;font-family:var(--font-display);font-size:26px;font-weight:800;color:var(--brand)}
+  .calc-card span{color:var(--concrete);font-size:13px;margin-top:4px;display:block}
+  .calc-note{color:var(--concrete);font-size:12.5px;margin-top:14px;max-width:62ch}
+
+  /* sticky mobile WhatsApp bar */
+  .wa-fab{display:none}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  /* responsive */
+  @media(max-width:980px){
+    .hero{grid-template-columns:1fr}
+    .hero-copy{padding:48px 24px;max-width:none;margin:0}
+    .hero-media{min-height:300px;order:-1}
+    .grid-6,.about-grid{grid-template-columns:repeat(2,1fr)}
+    .textures{grid-template-columns:repeat(2,1fr)}
+    .apps{grid-template-columns:repeat(2,1fr)}
+    .objects{grid-template-columns:1fr 1fr}
+    .specs .wrap{grid-template-columns:1fr 1fr}
+    .contacts .wrap{grid-template-columns:1fr}
+    nav{display:none}
+    .burger{display:inline-flex}
+    .wa-fab{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;align-items:center;justify-content:center;
+      gap:8px;background:var(--brand);color:var(--ink);font-weight:600;font-size:16px;padding:15px;border-top:1px solid #d9760f}
+    .wa-fab i{font-size:22px}
+    body{padding-bottom:58px}
+  }
+  @media(max-width:560px){
+    .specs .wrap{grid-template-columns:1fr 1fr}
+    .grid-6,.about-grid,.apps,.objects{grid-template-columns:1fr}
+    .textures{grid-template-columns:1fr 1fr;gap:10px}
+    .swatch{aspect-ratio:16/10}
+    .spec{border-right:0;border-bottom:1px solid var(--line);padding:16px 14px}
+    .spec b{font-size:18px}
+    .wrap{padding:0 16px}
+    header .wrap{gap:8px}
+    .brand small{display:none}
+    .brand b{font-size:15px}
+    .nav-cta span{display:none}
+    .nav-cta{padding:11px 13px}
+    .hero h1{font-size:clamp(26px,7vw,34px)}
+    section.block{padding:60px 0}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="LEGO STONE KAZAKHSTAN">
+      <span class="mark"><span class="grid"><span></span><span></span><span></span><span></span></span></span>
+      <b>LEGO STONE</b><small>KAZAKHSTAN</small>
+    </a>
+    <nav>
+      <a href="#product" data-ru="Продукция" data-kk="Өнім">Продукция</a>
+      <a href="#applications" data-ru="Применение" data-kk="Қолдану">Применение</a>
+      <a href="#objects" data-ru="Объекты" data-kk="Нысандар">Объекты</a>
+      <a href="#calc" data-ru="Расчёт" data-kk="Есеп">Расчёт</a>
+      <a href="#faq" data-ru="Вопросы" data-kk="Сұрақтар">Вопросы</a>
+      <a href="#contacts" data-ru="Контакты" data-kk="Байланыс">Контакты</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:14px">
+      <div class="lang" role="group" aria-label="Язык / Тіл">
+        <button id="kk" onclick="setLang('kk')">KZ</button>
+        <button id="ru" class="on" onclick="setLang('ru')">RU</button>
+      </div>
+      <a class="btn btn-brand nav-cta" href="https://wa.me/77000000000" target="_blank" rel="noopener"><i class="ph ph-whatsapp-logo"></i><span data-ru="WhatsApp" data-kk="WhatsApp">WhatsApp</span></a>
+      <button class="burger" aria-label="Меню" aria-expanded="false" onclick="toggleMenu()"><i class="ph ph-list"></i></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#product" onclick="closeMenu()" data-ru="Продукция" data-kk="Өнім">Продукция</a>
+    <a href="#applications" onclick="closeMenu()" data-ru="Применение" data-kk="Қолдану">Применение</a>
+    <a href="#objects" onclick="closeMenu()" data-ru="Объекты" data-kk="Нысандар">Объекты</a>
+    <a href="#calc" onclick="closeMenu()" data-ru="Расчёт" data-kk="Есеп">Расчёт</a>
+    <a href="#faq" onclick="closeMenu()" data-ru="Вопросы" data-kk="Сұрақтар">Вопросы</a>
+    <a href="#contacts" onclick="closeMenu()" data-ru="Контакты" data-kk="Байланыс">Контакты</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="eyebrow" data-ru="Облицовочный кирпич типа «Лего» · Астана" data-kk="«Лего» типті қаптама кірпіш · Астана">Облицовочный кирпич типа «Лего» · Астана</div>
+      <h1 data-ru="Кладка без раствора. Ровные стены без выравнивания" data-kk="Ерітіндісіз қалау. Тегістеусіз тегіс қабырғалар">Кладка без раствора. Ровные стены без выравнивания</h1>
+      <ul class="checks">
+        <li><i class="ph ph-check"></i><span data-ru="Пазы и шипы — кладка быстрее и без спецнавыков" data-kk="Ойықтар мен тістер — жылдам әрі арнайы дағдысыз қалау">Пазы и шипы — кладка быстрее и без спецнавыков</span></li>
+        <li><i class="ph ph-check"></i><span data-ru="Кафельный клей: 1 мешок на 500 кирпичей" data-kk="Плитка желімі: 500 кірпішке 1 қап">Кафельный клей: 1 мешок на 500 кирпичей</span></li>
+        <li><i class="ph ph-check"></i><span data-ru="Цвет не выцветает, коммуникации внутри стен" data-kk="Түсі оңбайды, коммуникациялар қабырға ішінде">Цвет не выцветает, коммуникации внутри стен</span></li>
+      </ul>
+      <div class="hero-actions">
+        <a class="btn btn-brand" href="https://wa.me/77000000000" target="_blank" rel="noopener"><i class="ph ph-whatsapp-logo"></i><span data-ru="Написать в WhatsApp" data-kk="WhatsApp-қа жазу">Написать в WhatsApp</span></a>
+        <a class="btn btn-outline" href="#textures" data-ru="Каталог фактур" data-kk="Фактуралар каталогы">Каталог фактур</a>
+      </div>
+      <div class="hero-phone">+7 700 000 00 00</div>
+    </div>
+    <figure class="hero-media">
+      <!-- Авто-плейсхолдер (тематическое фото кирпича). Клиент заменит на реальное фото фасада из Instagram -->
+      <img src="https://loremflickr.com/1200/1400/brick,house?lock=1" alt="Фасад из облицовочного кирпича «Лего»" loading="eager" />
+      <figcaption data-ru="Фасад из кирпича «Лего» · фото-плейсхолдер" data-kk="«Лего» кірпішінен қапталған фасад · фото-орын">Фасад из кирпича «Лего» · фото-плейсхолдер</figcaption>
+    </figure>
+  </section>
+
+  <!-- SPEC STRIP -->
+  <div class="specs">
+    <div class="wrap">
+      <div class="spec"><b>М200</b><span data-ru="марка прочности" data-kk="беріктік маркасы">марка прочности</span></div>
+      <div class="spec"><b>F100</b><span data-ru="морозостойкость" data-kk="аязға төзімділік">морозостойкость</span></div>
+      <div class="spec"><b>≤8%</b><span data-ru="водопоглощение" data-kk="су сіңіру">водопоглощение</span></div>
+      <div class="spec"><b>240×120×65</b><span data-ru="размер, мм · отв. Ø60" data-kk="өлшемі, мм · тесік Ø60">размер, мм · отв. Ø60</span></div>
+    </div>
+  </div>
+
+  <!-- PRODUCT / WHAT IS IT -->
+  <section class="block" id="product">
+    <div class="wrap">
+      <div class="head reveal">
+        <h2 data-ru="Что такое лего-кирпич" data-kk="«Лего» кірпіш дегеніміз не">Что такое лего-кирпич</h2>
+        <p data-ru="Гиперпрессованный облицовочный кирпич с пазами, шипами и отверстиями. Стыкуется как конструктор, поэтому стены выходят ровными, а кладка — быстрой." data-kk="Ойықтары, тістері және тесіктері бар гиперпрессленген қаптама кірпіш. Конструктор сияқты жалғанады, сондықтан қабырғалар тегіс, ал қалау жылдам.">Гиперпрессованный облицовочный кирпич с пазами, шипами и отверстиями. Стыкуется как конструктор, поэтому стены выходят ровными, а кладка — быстрой.</p>
+      </div>
+      <div class="grid-6 reveal">
+        <div class="feature"><i class="ph ph-stack"></i><h3 data-ru="Кладка без раствора" data-kk="Ерітіндісіз қалау">Кладка без раствора</h3><p data-ru="На кафельный клей: один мешок на 500 кирпичей. Чисто, быстро, экономно." data-kk="Плитка желіміне: бір қап 500 кірпішке. Таза, жылдам, үнемді.">На кафельный клей: один мешок на 500 кирпичей. Чисто, быстро, экономно.</p></div>
+        <div class="feature"><i class="ph ph-ruler"></i><h3 data-ru="Ровные стены" data-kk="Тегіс қабырғалар">Ровные стены</h3><p data-ru="Точная геометрия — выравнивание и штукатурка не нужны." data-kk="Дәл геометрия — тегістеу мен сылақ қажет емес.">Точная геометрия — выравнивание и штукатурка не нужны.</p></div>
+        <div class="feature"><i class="ph ph-wrench"></i><h3 data-ru="Без спецнавыков" data-kk="Арнайы дағдысыз">Без спецнавыков</h3><p data-ru="Пазы и шипы фиксируют ряд — справится не только каменщик." data-kk="Ойықтар мен тістер қатарды бекітеді — тек қалаушы ғана емес.">Пазы и шипы фиксируют ряд — справится не только каменщик.</p></div>
+        <div class="feature"><i class="ph ph-flow-arrow"></i><h3 data-ru="Коммуникации внутри" data-kk="Коммуникациялар ішінде">Коммуникации внутри</h3><p data-ru="Отверстия Ø60 мм — провода, трубы и армирование скрыты в стене." data-kk="Ø60 мм тесіктер — сымдар, құбырлар мен арматура қабырғада жасырын.">Отверстия Ø60 мм — провода, трубы и армирование скрыты в стене.</p></div>
+        <div class="feature"><i class="ph ph-palette"></i><h3 data-ru="Цвет не выцветает" data-kk="Түсі оңбайды">Цвет не выцветает</h3><p data-ru="Различная цветовая гамма, которая держит цвет годами." data-kk="Әртүрлі түс палитрасы, жылдар бойы түсін сақтайды.">Различная цветовая гамма, которая держит цвет годами.</p></div>
+        <div class="feature"><i class="ph ph-shield-check"></i><h3 data-ru="Прочно и морозостойко" data-kk="Берік әрі аязға төзімді">Прочно и морозостойко</h3><p data-ru="М200, F100, водопоглощение ≤8% — под климат Казахстана." data-kk="М200, F100, су сіңіру ≤8% — Қазақстан климатына лайық.">М200, F100, водопоглощение ≤8% — под климат Казахстана.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEXTURES -->
+  <section class="block" id="textures" style="background:var(--white);border-top:1px solid var(--line)">
+    <div class="wrap">
+      <div class="head reveal">
+        <h2 data-ru="Фактуры и цвета" data-kk="Фактуралар мен түстер">Фактуры и цвета</h2>
+        <p data-ru="Подберём цвет под фасад, забор или благоустройство. Реальные образцы — по запросу в WhatsApp." data-kk="Фасадқа, қоршауға немесе аумаққа түс таңдаймыз. Нақты үлгілер — WhatsApp арқылы сұраныс бойынша.">Подберём цвет под фасад, забор или благоустройство. Реальные образцы — по запросу в WhatsApp.</p>
+      </div>
+      <!-- Цвета — образцы ассортимента (сплошной цвет, всегда видны). Клиент заменит на фото реальных образцов -->
+      <div class="textures reveal">
+        <div class="swatch" style="background:#D9C2A3"><span>Песочный</span></div>
+        <div class="swatch" style="background:#E7DCC6"><span>Слоновая кость</span></div>
+        <div class="swatch" style="background:#B5532E"><span>Терракот</span></div>
+        <div class="swatch" style="background:#9E3B2E"><span>Красный</span></div>
+        <div class="swatch" style="background:#5A3A2E"><span>Шоколад</span></div>
+        <div class="swatch" style="background:#3A3A3C"><span>Графит</span></div>
+        <div class="swatch" style="background:#9A9A98"><span>Серый</span></div>
+        <div class="swatch" style="background:#EDEAE3"><span>Белый</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLICATIONS -->
+  <section class="block" id="applications">
+    <div class="wrap">
+      <div class="head reveal">
+        <h2 data-ru="Применение" data-kk="Қолдану аясы">Применение</h2>
+        <p data-ru="Один материал для фасада и всего двора." data-kk="Фасад пен бүкіл аула үшін бір материал.">Один материал для фасада и всего двора.</p>
+      </div>
+      <!-- Авто-плейсхолдеры (тематические фото). Клиент заменит на реальные фото объектов -->
+      <div class="apps reveal">
+        <div class="app"><figure><img src="https://loremflickr.com/600/800/brick,house?lock=2" alt="" loading="lazy"></figure><figcaption data-ru="Фасады" data-kk="Фасадтар">Фасады</figcaption></div>
+        <div class="app"><figure><img src="https://loremflickr.com/600/800/brick,fence?lock=3" alt="" loading="lazy"></figure><figcaption data-ru="Заборы" data-kk="Қоршаулар">Заборы</figcaption></div>
+        <div class="app"><figure><img src="https://loremflickr.com/600/800/brick,wall?lock=4" alt="" loading="lazy"></figure><figcaption data-ru="Столбы" data-kk="Бағаналар">Столбы</figcaption></div>
+        <div class="app"><figure><img src="https://loremflickr.com/600/800/brick,garden?lock=5" alt="" loading="lazy"></figure><figcaption data-ru="Беседки" data-kk="Күркелер">Беседки</figcaption></div>
+        <div class="app"><figure><img src="https://loremflickr.com/600/800/brick,garage?lock=6" alt="" loading="lazy"></figure><figcaption data-ru="Гаражи" data-kk="Гараждар">Гаражи</figcaption></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OBJECTS -->
+  <section class="block" id="objects" style="background:var(--white);border-top:1px solid var(--line)">
+    <div class="wrap">
+      <div class="head reveal">
+        <h2 data-ru="Наши объекты" data-kk="Біздің нысандар">Наши объекты</h2>
+        <p data-ru="Выполненные работы в Астане и области." data-kk="Астана мен облыста орындалған жұмыстар.">Выполненные работы в Астане и области.</p>
+      </div>
+      <!-- Авто-плейсхолдеры. Для портфолио клиент ОБЯЗАТЕЛЬНО ставит свои реальные фото -->
+      <div class="objects reveal">
+        <figure><img src="https://loremflickr.com/800/600/brick,building?lock=7" alt="" loading="lazy"></figure>
+        <figure><img src="https://loremflickr.com/800/600/brick,house?lock=8" alt="" loading="lazy"></figure>
+        <figure><img src="https://loremflickr.com/800/600/brick,wall?lock=9" alt="" loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="block about" id="about">
+    <div class="wrap">
+      <div class="head reveal">
+        <h2 data-ru="О компании" data-kk="Компания туралы">О компании</h2>
+        <p data-ru="LEGO STONE KAZAKHSTAN — собственное производство облицовочного лего-кирпича в Астане." data-kk="LEGO STONE KAZAKHSTAN — Астанадағы қаптама «Лего» кірпішінің меншікті өндірісі.">LEGO STONE KAZAKHSTAN — собственное производство облицовочного лего-кирпича в Астане.</p>
+      </div>
+      <div class="about-grid reveal">
+        <div class="about-cell"><i class="ph ph-factory"></i><h3 data-ru="Производство в Астане" data-kk="Астанадағы өндіріс">Производство в Астане</h3><p data-ru="Свой завод — стабильное качество и наличие." data-kk="Меншікті зауыт — тұрақты сапа мен қолжетімділік.">Свой завод — стабильное качество и наличие.</p></div>
+        <div class="about-cell"><i class="ph ph-seal-check"></i><h3 data-ru="Гарантия качества" data-kk="Сапа кепілдігі">Гарантия качества</h3><p data-ru="Контролируем каждую партию по прочности и геометрии." data-kk="Әр партияны беріктігі мен геометриясы бойынша бақылаймыз.">Контролируем каждую партию по прочности и геометрии.</p></div>
+        <div class="about-cell"><i class="ph ph-handshake"></i><h3 data-ru="Индивидуальный подход" data-kk="Жеке көзқарас">Индивидуальный подход</h3><p data-ru="Выгодная цена и расчёт под ваш объект." data-kk="Тиімді баға және нысаныңызға есеп.">Выгодная цена и расчёт под ваш объект.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALCULATOR -->
+  <section class="block" id="calc">
+    <div class="wrap">
+      <div class="head reveal">
+        <h2 data-ru="Калькулятор материала" data-kk="Материал калькуляторы">Калькулятор материала</h2>
+        <p data-ru="Прикиньте, сколько кирпича и клея нужно на вашу площадь. Точную цену рассчитаем в WhatsApp." data-kk="Ауданыңызға қанша кірпіш пен желім керегін шамалап есептеңіз. Нақты бағаны WhatsApp-та есептейміз.">Прикиньте, сколько кирпича и клея нужно на вашу площадь. Точную цену рассчитаем в WhatsApp.</p>
+      </div>
+      <div class="calc reveal">
+        <div class="calc-input">
+          <label for="calc-area" data-ru="Площадь облицовки, м²" data-kk="Қаптау ауданы, м²">Площадь облицовки, м²</label>
+          <input id="calc-area" type="number" min="1" step="1" value="20" inputmode="numeric" oninput="calcMaterial()" />
+        </div>
+        <div class="calc-out">
+          <div class="calc-card"><b id="calc-bricks">—</b><span data-ru="кирпичей (с запасом ~5%)" data-kk="кірпіш (~5% қормен)">кирпичей (с запасом ~5%)</span></div>
+          <div class="calc-card"><b id="calc-bags">—</b><span data-ru="мешков клея" data-kk="желім қаптары">мешков клея</span></div>
+        </div>
+        <a id="calc-wa" class="btn btn-brand" href="https://wa.me/77000000000" target="_blank" rel="noopener"><i class="ph ph-whatsapp-logo"></i><span data-ru="Уточнить цену в WhatsApp" data-kk="WhatsApp-та бағаны нақтылау">Уточнить цену в WhatsApp</span></a>
+        <p class="calc-note" data-ru="Расчёт примерный: ~64 кирпича на м² (грань 240×65 мм), 1 мешок клея на 500 кирпичей. Точное количество уточняйте при заказе." data-kk="Есеп шамамен: м²-ге ~64 кірпіш (240×65 мм қыры), 500 кірпішке 1 қап желім. Нақты санын тапсырыс кезінде нақтылаңыз.">Расчёт примерный: ~64 кирпича на м² (грань 240×65 мм), 1 мешок клея на 500 кирпичей. Точное количество уточняйте при заказе.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="block" id="faq">
+    <div class="wrap">
+      <div class="head reveal">
+        <h2 data-ru="Частые вопросы" data-kk="Жиі қойылатын сұрақтар">Частые вопросы</h2>
+      </div>
+      <div class="faq reveal">
+        <details class="faq-item">
+          <summary><span data-ru="Нужен ли раствор для кладки?" data-kk="Қалау үшін ерітінді қажет пе?">Нужен ли раствор для кладки?</span><i class="ph ph-plus"></i></summary>
+          <div class="faq-a"><p data-ru="Нет. Кладка на кафельный клей — одного мешка хватает на 500 кирпичей." data-kk="Жоқ. Қалау плитка желіміне жасалады — бір қап 500 кірпішке жетеді.">Нет. Кладка на кафельный клей — одного мешка хватает на 500 кирпичей.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary><span data-ru="Сколько стоит кирпич?" data-kk="Кірпіш қанша тұрады?">Сколько стоит кирпич?</span><i class="ph ph-plus"></i></summary>
+          <div class="faq-a"><p data-ru="Цена зависит от цвета, фактуры и объёма заказа. Точный расчёт пришлём в WhatsApp." data-kk="Бағасы түсіне, фактурасына және тапсырыс көлеміне байланысты. Нақты есепті WhatsApp-қа жібереміз.">Цена зависит от цвета, фактуры и объёма заказа. Точный расчёт пришлём в WhatsApp.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary><span data-ru="Подходит ли для жилого дома?" data-kk="Тұрғын үйге жарай ма?">Подходит ли для жилого дома?</span><i class="ph ph-plus"></i></summary>
+          <div class="faq-a"><p data-ru="Да, как облицовка фасада. Для жилых стен рекомендуем кладку с утеплителем." data-kk="Иә, фасад қаптамасы ретінде. Тұрғын қабырғалар үшін жылытқышпен қалауды ұсынамыз.">Да, как облицовка фасада. Для жилых стен рекомендуем кладку с утеплителем.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary><span data-ru="Есть ли доставка?" data-kk="Жеткізу бар ма?">Есть ли доставка?</span><i class="ph ph-plus"></i></summary>
+          <div class="faq-a"><p data-ru="Да, по Астане и регионам Казахстана. Условия уточняйте в WhatsApp." data-kk="Иә, Астана мен Қазақстан өңірлеріне. Шарттарын WhatsApp арқылы нақтылаңыз.">Да, по Астане и регионам Казахстана. Условия уточняйте в WhatsApp.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTS -->
+  <section class="block contacts" id="contacts" style="border-top:1px solid var(--line)">
+    <div class="wrap">
+      <div class="reveal">
+        <div class="head" style="margin-bottom:28px">
+          <h2 data-ru="Оставьте заявку" data-kk="Өтінім қалдырыңыз">Оставьте заявку</h2>
+          <p data-ru="Ответим в WhatsApp и рассчитаем стоимость под ваш проект." data-kk="WhatsApp арқылы жауап беріп, жобаңызға құнын есептейміз.">Ответим в WhatsApp и рассчитаем стоимость под ваш проект.</p>
+        </div>
+        <form onsubmit="return sendWhatsApp(event)">
+          <div class="field"><label for="f-name" data-ru="Имя" data-kk="Аты">Имя</label><input id="f-name" type="text" required /></div>
+          <div class="field"><label for="f-phone" data-ru="Телефон" data-kk="Телефон">Телефон</label><input id="f-phone" type="tel" inputmode="tel" required /></div>
+          <div class="field"><label for="f-msg" data-ru="Что нужно (объект, объём)" data-kk="Не қажет (нысан, көлемі)">Что нужно (объект, объём)</label><textarea id="f-msg" rows="3"></textarea></div>
+          <button class="btn btn-brand" type="submit"><i class="ph ph-whatsapp-logo"></i><span data-ru="Отправить в WhatsApp" data-kk="WhatsApp-қа жіберу">Отправить в WhatsApp</span></button>
+        </form>
+      </div>
+      <div class="contact-list reveal">
+        <a class="contact-row" href="https://wa.me/77000000000" target="_blank" rel="noopener">
+          <i class="ph ph-whatsapp-logo"></i><span><b>WhatsApp · +7 700 000 00 00</b><span data-ru="Основной канал связи" data-kk="Негізгі байланыс арнасы">Основной канал связи</span></span>
+        </a>
+        <a class="contact-row" href="https://instagram.com/lego.kirpich.atyrau" target="_blank" rel="noopener">
+          <i class="ph ph-instagram-logo"></i><span><b>@lego.kirpich.atyrau</b><span data-ru="Фото объектов и фактур" data-kk="Нысандар мен фактуралар фотосы">Фото объектов и фактур</span></span>
+        </a>
+        <div class="contact-row">
+          <i class="ph ph-map-pin"></i><span><b data-ru="Астана, Казахстан" data-kk="Астана, Қазақстан">Астана, Казахстан</b><span data-ru="Производство и отгрузка" data-kk="Өндіріс және жөнелту">Производство и отгрузка</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<a class="wa-fab" href="https://wa.me/77000000000" target="_blank" rel="noopener" aria-label="Написать в WhatsApp">
+  <i class="ph ph-whatsapp-logo"></i><span data-ru="Написать в WhatsApp" data-kk="WhatsApp-қа жазу">Написать в WhatsApp</span>
+</a>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year"></span> LEGO STONE KAZAKHSTAN</span>
+    <span data-ru="Облицовочный лего-кирпич · Астана" data-kk="Қаптама «Лего» кірпіш · Астана">Облицовочный лего-кирпич · Астана</span>
+  </div>
+</footer>
+
+<script>
+  // language toggle (RU default, KK = Kazakh)
+  function setLang(lang){
+    document.documentElement.lang = (lang==='kk')?'kk':'ru';
+    document.querySelectorAll('[data-ru]').forEach(function(el){
+      var v = el.getAttribute(lang==='kk'?'data-kk':'data-ru');
+      if(v!=null) el.textContent = v;
+    });
+    document.getElementById('ru').classList.toggle('on', lang==='ru');
+    document.getElementById('kk').classList.toggle('on', lang==='kk');
+  }
+
+  // mobile burger menu
+  function toggleMenu(){
+    var m=document.getElementById('mobileMenu');
+    var open=m.classList.toggle('open');
+    var b=document.querySelector('.burger');
+    b.setAttribute('aria-expanded',open?'true':'false');
+    b.querySelector('i').className='ph '+(open?'ph-x':'ph-list');
+  }
+  function closeMenu(){
+    document.getElementById('mobileMenu').classList.remove('open');
+    var b=document.querySelector('.burger');
+    b.setAttribute('aria-expanded','false');
+    b.querySelector('i').className='ph ph-list';
+  }
+
+  // material calculator: area -> bricks (~64/m², +5% reserve) + glue bags (1 per 500)
+  function calcMaterial(){
+    var area=parseFloat(document.getElementById('calc-area').value)||0;
+    var bricks=area>0?Math.ceil(area*64*1.05):0;
+    var bags=area>0?Math.ceil(bricks/500):0;
+    document.getElementById('calc-bricks').textContent=bricks?bricks.toLocaleString('ru-RU'):'—';
+    document.getElementById('calc-bags').textContent=bags?bags:'—';
+    var text='Здравствуйте! Рассчитайте цену:%0AПлощадь облицовки: '+area+' м2%0AКирпич: ~'+bricks+' шт%0AКлей: ~'+bags+' мешков';
+    document.getElementById('calc-wa').href='https://wa.me/77000000000?text='+text;
+  }
+
+  // form -> WhatsApp deep link
+  function sendWhatsApp(e){
+    e.preventDefault();
+    var name = document.getElementById('f-name').value.trim();
+    var phone = document.getElementById('f-phone').value.trim();
+    var msg = document.getElementById('f-msg').value.trim();
+    var text = 'Заявка с сайта LEGO STONE%0A'
+      + 'Имя: ' + encodeURIComponent(name) + '%0A'
+      + 'Телефон: ' + encodeURIComponent(phone) + '%0A'
+      + 'Сообщение: ' + encodeURIComponent(msg);
+    window.open('https://wa.me/77000000000?text=' + text, '_blank');
+    return false;
+  }
+
+  // scroll reveal
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+  },{threshold:0.15});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+  calcMaterial();
+</script>
+</body>
+</html>
