@@ -31,8 +31,8 @@
     var bags=area>0?Math.ceil(bricks/500):0;
     document.getElementById('calc-bricks').textContent=bricks?bricks.toLocaleString('ru-RU'):'—';
     document.getElementById('calc-bags').textContent=bags?bags:'—';
-    var text='Здравствуйте! Рассчитайте цену:%0AПлощадь облицовки: '+area+' м2%0AКирпич: ~'+bricks+' шт%0AКлей: ~'+bags+' мешков';
-    document.getElementById('calc-wa').href='https://wa.me/77000000000?text='+text;
+    var body='Здравствуйте! Рассчитайте цену:\nПлощадь облицовки: '+area+' м²\nКирпич: ~'+bricks+' шт\nКлей: ~'+bags+' мешков';
+    document.getElementById('calc-wa').href='https://wa.me/77000000000?text='+encodeURIComponent(body);
   }
 
   // form -> WhatsApp deep link
@@ -41,11 +41,11 @@
     var name = document.getElementById('f-name').value.trim();
     var phone = document.getElementById('f-phone').value.trim();
     var msg = document.getElementById('f-msg').value.trim();
-    var text = 'Заявка с сайта LEGO STONE%0A'
-      + 'Имя: ' + encodeURIComponent(name) + '%0A'
-      + 'Телефон: ' + encodeURIComponent(phone) + '%0A'
-      + 'Сообщение: ' + encodeURIComponent(msg);
-    window.open('https://wa.me/77000000000?text=' + text, '_blank');
+    var body = 'Заявка с сайта LEGO STONE\n'
+      + 'Имя: ' + name + '\n'
+      + 'Телефон: ' + phone + '\n'
+      + 'Сообщение: ' + msg;
+    window.open('https://wa.me/77000000000?text=' + encodeURIComponent(body), '_blank');
     return false;
   }
 
