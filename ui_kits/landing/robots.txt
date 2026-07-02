@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# TODO: замените домен на реальный
+Sitemap: https://legostone.kz/sitemap.xml

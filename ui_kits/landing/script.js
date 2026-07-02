@@ -32,7 +32,7 @@
     document.getElementById('calc-bricks').textContent=bricks?bricks.toLocaleString('ru-RU'):'—';
     document.getElementById('calc-bags').textContent=bags?bags:'—';
     var body='Здравствуйте! Рассчитайте цену:\nПлощадь облицовки: '+area+' м²\nКирпич: ~'+bricks+' шт\nКлей: ~'+bags+' мешков';
-    document.getElementById('calc-wa').href='https://wa.me/77000000000?text='+encodeURIComponent(body);
+    document.getElementById('calc-wa').href='https://wa.me/77781114923?text='+encodeURIComponent(body);
   }
 
   // form -> WhatsApp deep link
@@ -41,11 +41,11 @@
     var name = document.getElementById('f-name').value.trim();
     var phone = document.getElementById('f-phone').value.trim();
     var msg = document.getElementById('f-msg').value.trim();
-    var body = 'Заявка с сайта LEGO STONE\n'
+    var body = 'Заявка с сайта LEGOBLOCK\n'
       + 'Имя: ' + name + '\n'
       + 'Телефон: ' + phone + '\n'
       + 'Сообщение: ' + msg;
-    window.open('https://wa.me/77000000000?text=' + encodeURIComponent(body), '_blank');
+    window.open('https://wa.me/77781114923?text=' + encodeURIComponent(body), '_blank');
     return false;
   }
 
@@ -54,6 +54,33 @@
     entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
   },{threshold:0.15});
   document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  // lightbox — полноэкранный просмотр фото галерей
+  (function(){
+    var lb = document.getElementById('lightbox');
+    if(!lb) return;
+    var lbImg = document.getElementById('lightbox-img');
+    var lbCap = document.getElementById('lightbox-cap');
+    function openLightbox(src, cap){
+      lbImg.src = src; lbImg.alt = cap || '';
+      lbCap.textContent = cap || '';
+      lb.classList.add('open'); lb.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+    }
+    window.closeLightbox = function(){
+      lb.classList.remove('open'); lb.setAttribute('aria-hidden','true');
+      document.body.style.overflow = ''; lbImg.src = '';
+    };
+    document.querySelectorAll('.app figure img, .objects figure img').forEach(function(img){
+      img.addEventListener('click', function(){
+        openLightbox(img.currentSrc || img.src, img.getAttribute('alt') || '');
+      });
+    });
+    lb.addEventListener('click', function(e){ if(e.target === lb) closeLightbox(); });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape' && lb.classList.contains('open')) closeLightbox();
+    });
+  })();
 
   document.getElementById('year').textContent = new Date().getFullYear();
   calcMaterial();
