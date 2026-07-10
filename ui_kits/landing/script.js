@@ -24,13 +24,18 @@
     b.querySelector('i').className='ph ph-list';
   }
 
-  // material calculator: area -> bricks (64.1/m², rounded up) + glue bags (1 per 500)
+  // material calculator: area -> bricks (64.1/m², rounded UP to the nearest 100)
+  // + glue bags (1 per 500). Matches the reference spreadsheet: 7648 -> 7700.
   var BRICKS_PER_M2 = 64.1;
+  var PRICE_PER_BRICK = 350;
+  function bricksFromArea(area){
+    return area > 0 ? Math.ceil(area * BRICKS_PER_M2 / 100) * 100 : 0;
+  }
   function calcMaterial(){
     var area=parseFloat(document.getElementById('calc-area').value)||0;
-    var bricks=area>0?Math.ceil(area*BRICKS_PER_M2):0;
+    var bricks=bricksFromArea(area);
     var bags=area>0?Math.ceil(bricks/500):0;
-    var cost=bricks*350;
+    var cost=bricks*PRICE_PER_BRICK;
     document.getElementById('calc-bricks').textContent=bricks?bricks.toLocaleString('ru-RU'):'—';
     document.getElementById('calc-bags').textContent=bags?bags:'—';
     var costEl=document.getElementById('calc-cost');
@@ -53,21 +58,20 @@
     var resEl  = document.getElementById('dim-result');
     var hideAll = function(){ errPos.hidden = true; errInt.hidden = true; errOvf.hidden = true; resEl.hidden = true; };
 
-    // neutral state until the user starts entering data
-    var anyEntered = ids.some(function(id){ return raw[id] !== ''; });
-    if(!anyEntered){ hideAll(); return; }
+    // neutral state until ALL fields are filled — no nagging while the user types
+    var allFilled = ids.every(function(id){ return raw[id] !== ''; });
+    if(!allFilled){ hideAll(); return; }
 
     // counts must be integers
-    var isIntField = function(v){ return v !== '' && /^\d+$/.test(v); };
-    if((raw['win-count'] !== '' && !isIntField(raw['win-count'])) ||
-       (raw['door-count'] !== '' && !isIntField(raw['door-count']))){
+    var isIntField = function(v){ return /^\d+$/.test(v); };
+    if(!isIntField(raw['win-count']) || !isIntField(raw['door-count'])){
       hideAll(); errInt.hidden = false; return;
     }
 
     var v = {};
     ids.forEach(function(id){ v[id] = parseFloat(raw[id]); });
 
-    // every value must be present and greater than 0
+    // all filled now — flag only genuinely invalid values (0 or negative)
     var allPositive = ids.every(function(id){ return v[id] > 0; });
     if(!allPositive){ hideAll(); errPos.hidden = false; return; }
 
@@ -80,7 +84,7 @@
     }
 
     var netArea = wallArea - windowsArea - doorsArea;
-    var bricks = Math.ceil(netArea * BRICKS_PER_M2);
+    var bricks = bricksFromArea(netArea);
 
     // push net area into the main calculator input and recompute bricks + cost
     var areaEl = document.getElementById('calc-area');

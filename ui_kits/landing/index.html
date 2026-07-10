@@ -216,74 +216,81 @@
 
       <!-- CALCULATOR -->
       <div class="calc reveal" id="calc">
-        <details class="calc-dims">
-          <summary>
-            <i aria-hidden="true" class="ph ph-ruler"></i>
-            <span data-ru="Не знаете площадь? Рассчитать по размерам дома" data-kk="Ауданды білмейсіз бе? Үй өлшемдері бойынша есептеу">Не знаете площадь? Рассчитать по размерам дома</span>
-            <i aria-hidden="true" class="ph ph-caret-down calc-dims-caret"></i>
-          </summary>
-          <div class="calc-dims-body">
-            <fieldset class="calc-dims-group">
-              <legend data-ru="Размеры дома" data-kk="Үй өлшемдері">Размеры дома</legend>
-              <div class="calc-dims-fields">
-                <div class="calc-dims-field">
-                  <label for="dim-length" data-ru="Длина, м" data-kk="Ұзындығы, м">Длина, м</label>
-                  <input id="dim-length" type="number" min="0.1" step="0.1" inputmode="decimal" placeholder="10" oninput="calcDims()" />
-                </div>
-                <div class="calc-dims-field">
-                  <label for="dim-width" data-ru="Ширина, м" data-kk="Ені, м">Ширина, м</label>
-                  <input id="dim-width" type="number" min="0.1" step="0.1" inputmode="decimal" placeholder="8" oninput="calcDims()" />
-                </div>
-                <div class="calc-dims-field">
-                  <label for="dim-height" data-ru="Высота стен, м" data-kk="Қабырға биіктігі, м">Высота стен, м</label>
-                  <input id="dim-height" type="number" min="0.1" step="0.1" inputmode="decimal" placeholder="3" oninput="calcDims()" />
-                </div>
-              </div>
-            </fieldset>
-            <fieldset class="calc-dims-group">
-              <legend data-ru="Окна" data-kk="Терезелер">Окна</legend>
-              <div class="calc-dims-fields">
-                <div class="calc-dims-field">
-                  <label for="win-width" data-ru="Ширина окна, м" data-kk="Терезе ені, м">Ширина окна, м</label>
-                  <input id="win-width" type="number" min="0.1" step="0.1" inputmode="decimal" placeholder="1.5" oninput="calcDims()" />
-                </div>
-                <div class="calc-dims-field">
-                  <label for="win-height" data-ru="Высота окна, м" data-kk="Терезе биіктігі, м">Высота окна, м</label>
-                  <input id="win-height" type="number" min="0.1" step="0.1" inputmode="decimal" placeholder="1.4" oninput="calcDims()" />
-                </div>
-                <div class="calc-dims-field">
-                  <label for="win-count" data-ru="Количество окон" data-kk="Терезе саны">Количество окон</label>
-                  <input id="win-count" type="number" min="1" step="1" inputmode="numeric" placeholder="6" oninput="calcDims()" />
-                </div>
-              </div>
-            </fieldset>
-            <fieldset class="calc-dims-group">
-              <legend data-ru="Двери" data-kk="Есіктер">Двери</legend>
-              <div class="calc-dims-fields">
-                <div class="calc-dims-field">
-                  <label for="door-width" data-ru="Ширина двери, м" data-kk="Есік ені, м">Ширина двери, м</label>
-                  <input id="door-width" type="number" min="0.1" step="0.1" inputmode="decimal" placeholder="1" oninput="calcDims()" />
-                </div>
-                <div class="calc-dims-field">
-                  <label for="door-height" data-ru="Высота двери, м" data-kk="Есік биіктігі, м">Высота двери, м</label>
-                  <input id="door-height" type="number" min="0.1" step="0.1" inputmode="decimal" placeholder="2.1" oninput="calcDims()" />
-                </div>
-                <div class="calc-dims-field">
-                  <label for="door-count" data-ru="Количество дверей" data-kk="Есік саны">Количество дверей</label>
-                  <input id="door-count" type="number" min="1" step="1" inputmode="numeric" placeholder="1" oninput="calcDims()" />
-                </div>
-              </div>
-            </fieldset>
-            <p id="dim-err-positive" class="calc-dims-error" role="alert" hidden data-ru="Все значения должны быть больше 0." data-kk="Барлық мәндер 0-ден үлкен болуы керек.">Все значения должны быть больше 0.</p>
-            <p id="dim-err-integer" class="calc-dims-error" role="alert" hidden data-ru="Количество окон и дверей — только целые числа." data-kk="Терезелер мен есіктер саны — тек бүтін сандар.">Количество окон и дверей — только целые числа.</p>
-            <p id="dim-err-overflow" class="calc-dims-error" role="alert" hidden data-ru="Общая площадь окон и дверей не может превышать площадь стен." data-kk="Терезелер мен есіктердің жалпы ауданы қабырға ауданынан аспауы керек.">Общая площадь окон и дверей не может превышать площадь стен.</p>
-            <p id="dim-result" class="calc-dims-result" hidden></p>
+        <div class="calc-head">
+          <span class="calc-head-icon" aria-hidden="true"><i class="ph ph-calculator"></i></span>
+          <div>
+            <h3 data-ru="Калькулятор кирпича по размерам дома" data-kk="Үй өлшемі бойынша кірпіш калькуляторы">Калькулятор кирпича по размерам дома</h3>
+            <p data-ru="Введите размеры — сразу посчитаем кирпич, клей и стоимость." data-kk="Өлшемдерді енгізіңіз — кірпіш, желім және құнын бірден есептейміз.">Введите размеры — сразу посчитаем кирпич, клей и стоимость.</p>
           </div>
-        </details>
-        <div class="calc-input">
-          <label for="calc-area" data-ru="Площадь облицовки, м²" data-kk="Қаптау ауданы, м²">Площадь облицовки, м²</label>
+        </div>
+
+        <div class="calc-grid">
+          <div class="calc-group">
+            <div class="calc-group-title"><i aria-hidden="true" class="ph ph-house-line"></i><span data-ru="Размеры дома" data-kk="Үй өлшемдері">Размеры дома</span></div>
+            <div class="calc-fields">
+              <div class="calc-field">
+                <label for="dim-length" data-ru="Длина, м" data-kk="Ұзындығы, м">Длина, м</label>
+                <input id="dim-length" type="number" min="0.1" step="0.1" inputmode="decimal" placeholder="10" oninput="calcDims()" />
+              </div>
+              <div class="calc-field">
+                <label for="dim-width" data-ru="Ширина, м" data-kk="Ені, м">Ширина, м</label>
+                <input id="dim-width" type="number" min="0.1" step="0.1" inputmode="decimal" placeholder="8" oninput="calcDims()" />
+              </div>
+              <div class="calc-field">
+                <label for="dim-height" data-ru="Высота стен, м" data-kk="Қабырға биіктігі, м">Высота стен, м</label>
+                <input id="dim-height" type="number" min="0.1" step="0.1" inputmode="decimal" placeholder="3" oninput="calcDims()" />
+              </div>
+            </div>
+          </div>
+
+          <div class="calc-group">
+            <div class="calc-group-title"><i aria-hidden="true" class="ph ph-app-window"></i><span data-ru="Окна" data-kk="Терезелер">Окна</span></div>
+            <div class="calc-fields">
+              <div class="calc-field">
+                <label for="win-width" data-ru="Ширина окна, м" data-kk="Терезе ені, м">Ширина окна, м</label>
+                <input id="win-width" type="number" min="0.1" step="0.1" inputmode="decimal" placeholder="1.5" oninput="calcDims()" />
+              </div>
+              <div class="calc-field">
+                <label for="win-height" data-ru="Высота окна, м" data-kk="Терезе биіктігі, м">Высота окна, м</label>
+                <input id="win-height" type="number" min="0.1" step="0.1" inputmode="decimal" placeholder="1.4" oninput="calcDims()" />
+              </div>
+              <div class="calc-field">
+                <label for="win-count" data-ru="Количество окон" data-kk="Терезе саны">Количество окон</label>
+                <input id="win-count" type="number" min="1" step="1" inputmode="numeric" placeholder="6" oninput="calcDims()" />
+              </div>
+            </div>
+          </div>
+
+          <div class="calc-group">
+            <div class="calc-group-title"><i aria-hidden="true" class="ph ph-door"></i><span data-ru="Двери" data-kk="Есіктер">Двери</span></div>
+            <div class="calc-fields">
+              <div class="calc-field">
+                <label for="door-width" data-ru="Ширина двери, м" data-kk="Есік ені, м">Ширина двери, м</label>
+                <input id="door-width" type="number" min="0.1" step="0.1" inputmode="decimal" placeholder="1" oninput="calcDims()" />
+              </div>
+              <div class="calc-field">
+                <label for="door-height" data-ru="Высота двери, м" data-kk="Есік биіктігі, м">Высота двери, м</label>
+                <input id="door-height" type="number" min="0.1" step="0.1" inputmode="decimal" placeholder="2.1" oninput="calcDims()" />
+              </div>
+              <div class="calc-field">
+                <label for="door-count" data-ru="Количество дверей" data-kk="Есік саны">Количество дверей</label>
+                <input id="door-count" type="number" min="1" step="1" inputmode="numeric" placeholder="1" oninput="calcDims()" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p id="dim-err-positive" class="calc-error" role="alert" hidden><i aria-hidden="true" class="ph ph-warning-circle"></i><span data-ru="Все значения должны быть больше 0." data-kk="Барлық мәндер 0-ден үлкен болуы керек.">Все значения должны быть больше 0.</span></p>
+        <p id="dim-err-integer" class="calc-error" role="alert" hidden><i aria-hidden="true" class="ph ph-warning-circle"></i><span data-ru="Количество окон и дверей — только целые числа." data-kk="Терезелер мен есіктер саны — тек бүтін сандар.">Количество окон и дверей — только целые числа.</span></p>
+        <p id="dim-err-overflow" class="calc-error" role="alert" hidden><i aria-hidden="true" class="ph ph-warning-circle"></i><span data-ru="Общая площадь окон и дверей не может превышать площадь стен." data-kk="Терезелер мен есіктердің жалпы ауданы қабырға ауданынан аспауы керек.">Общая площадь окон и дверей не может превышать площадь стен.</span></p>
+
+        <div class="calc-manual">
+          <label for="calc-area" data-ru="Или укажите площадь облицовки вручную, м²" data-kk="Немесе қаптау ауданын қолмен енгізіңіз, м²">Или укажите площадь облицовки вручную, м²</label>
           <input id="calc-area" type="number" min="1" step="1" value="50" inputmode="numeric" oninput="calcMaterial()" />
         </div>
+
+        <p id="dim-result" class="calc-result" hidden></p>
+
         <div class="calc-out">
           <div class="calc-card"><b id="calc-bricks">—</b><span data-ru="кирпичей" data-kk="кірпіш">кирпичей</span></div>
           <div class="calc-card"><b id="calc-bags">—</b><span data-ru="мешков клея" data-kk="желім қаптары">мешков клея</span></div>
