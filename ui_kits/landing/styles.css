@@ -204,6 +204,29 @@
   .calc-card span{color:var(--concrete);font-size:13px;margin-top:4px;display:block}
   .calc-note{color:var(--concrete);font-size:12.5px;margin-top:16px;max-width:62ch}
 
+  /* dimensions sub-calculator */
+  .calc-dims{margin-bottom:22px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);overflow:hidden}
+  .calc-dims summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;
+    padding:14px 18px;font-weight:600;font-size:14.5px;color:var(--ink)}
+  .calc-dims summary::-webkit-details-marker{display:none}
+  .calc-dims summary > span{flex:1}
+  .calc-dims summary .ph-ruler{color:var(--brand);font-size:18px}
+  .calc-dims-caret{transition:transform .2s;color:var(--concrete);font-size:16px}
+  .calc-dims[open] .calc-dims-caret{transform:rotate(180deg)}
+  .calc-dims-body{padding:4px 18px 18px;display:grid;gap:18px}
+  .calc-dims-group{border:0;padding:0;margin:0}
+  .calc-dims-group legend{font-size:13px;font-weight:700;color:var(--brand-deep);padding:0;margin-bottom:10px;
+    text-transform:uppercase;letter-spacing:.03em}
+  .calc-dims-fields{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .calc-dims-field{display:grid;gap:6px}
+  .calc-dims-field label{font-size:12px;color:var(--concrete);font-weight:600}
+  .calc-dims-field input{font-family:var(--font-body);font-size:15px;padding:10px 12px;border:1px solid var(--steel);
+    border-radius:var(--radius-sm);background:var(--white);color:var(--ink);width:100%;transition:border-color .15s,box-shadow .15s}
+  .calc-dims-field input:focus{outline:0;border-color:var(--brand);box-shadow:0 0 0 3px rgba(232,130,30,.18)}
+  .calc-dims-error{color:#C0392B;font-size:13px;font-weight:600;margin:0}
+  .calc-dims-result{color:var(--brand-deep);font-size:14px;font-weight:700;margin:0}
+  @media (max-width:520px){.calc-dims-fields{grid-template-columns:1fr 1fr}}
+
   /* sticky mobile WhatsApp bar */
   .wa-fab{display:none}
 

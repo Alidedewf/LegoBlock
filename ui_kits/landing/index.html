@@ -216,17 +216,81 @@
 
       <!-- CALCULATOR -->
       <div class="calc reveal" id="calc">
+        <details class="calc-dims">
+          <summary>
+            <i aria-hidden="true" class="ph ph-ruler"></i>
+            <span data-ru="Не знаете площадь? Рассчитать по размерам дома" data-kk="Ауданды білмейсіз бе? Үй өлшемдері бойынша есептеу">Не знаете площадь? Рассчитать по размерам дома</span>
+            <i aria-hidden="true" class="ph ph-caret-down calc-dims-caret"></i>
+          </summary>
+          <div class="calc-dims-body">
+            <fieldset class="calc-dims-group">
+              <legend data-ru="Размеры дома" data-kk="Үй өлшемдері">Размеры дома</legend>
+              <div class="calc-dims-fields">
+                <div class="calc-dims-field">
+                  <label for="dim-length" data-ru="Длина, м" data-kk="Ұзындығы, м">Длина, м</label>
+                  <input id="dim-length" type="number" min="0.1" step="0.1" inputmode="decimal" placeholder="10" oninput="calcDims()" />
+                </div>
+                <div class="calc-dims-field">
+                  <label for="dim-width" data-ru="Ширина, м" data-kk="Ені, м">Ширина, м</label>
+                  <input id="dim-width" type="number" min="0.1" step="0.1" inputmode="decimal" placeholder="8" oninput="calcDims()" />
+                </div>
+                <div class="calc-dims-field">
+                  <label for="dim-height" data-ru="Высота стен, м" data-kk="Қабырға биіктігі, м">Высота стен, м</label>
+                  <input id="dim-height" type="number" min="0.1" step="0.1" inputmode="decimal" placeholder="3" oninput="calcDims()" />
+                </div>
+              </div>
+            </fieldset>
+            <fieldset class="calc-dims-group">
+              <legend data-ru="Окна" data-kk="Терезелер">Окна</legend>
+              <div class="calc-dims-fields">
+                <div class="calc-dims-field">
+                  <label for="win-width" data-ru="Ширина окна, м" data-kk="Терезе ені, м">Ширина окна, м</label>
+                  <input id="win-width" type="number" min="0.1" step="0.1" inputmode="decimal" placeholder="1.5" oninput="calcDims()" />
+                </div>
+                <div class="calc-dims-field">
+                  <label for="win-height" data-ru="Высота окна, м" data-kk="Терезе биіктігі, м">Высота окна, м</label>
+                  <input id="win-height" type="number" min="0.1" step="0.1" inputmode="decimal" placeholder="1.4" oninput="calcDims()" />
+                </div>
+                <div class="calc-dims-field">
+                  <label for="win-count" data-ru="Количество окон" data-kk="Терезе саны">Количество окон</label>
+                  <input id="win-count" type="number" min="1" step="1" inputmode="numeric" placeholder="6" oninput="calcDims()" />
+                </div>
+              </div>
+            </fieldset>
+            <fieldset class="calc-dims-group">
+              <legend data-ru="Двери" data-kk="Есіктер">Двери</legend>
+              <div class="calc-dims-fields">
+                <div class="calc-dims-field">
+                  <label for="door-width" data-ru="Ширина двери, м" data-kk="Есік ені, м">Ширина двери, м</label>
+                  <input id="door-width" type="number" min="0.1" step="0.1" inputmode="decimal" placeholder="1" oninput="calcDims()" />
+                </div>
+                <div class="calc-dims-field">
+                  <label for="door-height" data-ru="Высота двери, м" data-kk="Есік биіктігі, м">Высота двери, м</label>
+                  <input id="door-height" type="number" min="0.1" step="0.1" inputmode="decimal" placeholder="2.1" oninput="calcDims()" />
+                </div>
+                <div class="calc-dims-field">
+                  <label for="door-count" data-ru="Количество дверей" data-kk="Есік саны">Количество дверей</label>
+                  <input id="door-count" type="number" min="1" step="1" inputmode="numeric" placeholder="1" oninput="calcDims()" />
+                </div>
+              </div>
+            </fieldset>
+            <p id="dim-err-positive" class="calc-dims-error" role="alert" hidden data-ru="Все значения должны быть больше 0." data-kk="Барлық мәндер 0-ден үлкен болуы керек.">Все значения должны быть больше 0.</p>
+            <p id="dim-err-integer" class="calc-dims-error" role="alert" hidden data-ru="Количество окон и дверей — только целые числа." data-kk="Терезелер мен есіктер саны — тек бүтін сандар.">Количество окон и дверей — только целые числа.</p>
+            <p id="dim-err-overflow" class="calc-dims-error" role="alert" hidden data-ru="Общая площадь окон и дверей не может превышать площадь стен." data-kk="Терезелер мен есіктердің жалпы ауданы қабырға ауданынан аспауы керек.">Общая площадь окон и дверей не может превышать площадь стен.</p>
+            <p id="dim-result" class="calc-dims-result" hidden></p>
+          </div>
+        </details>
         <div class="calc-input">
           <label for="calc-area" data-ru="Площадь облицовки, м²" data-kk="Қаптау ауданы, м²">Площадь облицовки, м²</label>
           <input id="calc-area" type="number" min="1" step="1" value="50" inputmode="numeric" oninput="calcMaterial()" />
         </div>
         <div class="calc-out">
-          <div class="calc-card"><b id="calc-bricks">—</b><span data-ru="кирпичей (с запасом ~5%)" data-kk="кірпіш (~5% қормен)">кирпичей (с запасом ~5%)</span></div>
+          <div class="calc-card"><b id="calc-bricks">—</b><span data-ru="кирпичей" data-kk="кірпіш">кирпичей</span></div>
           <div class="calc-card"><b id="calc-bags">—</b><span data-ru="мешков клея" data-kk="желім қаптары">мешков клея</span></div>
           <div class="calc-card calc-card-cost"><b id="calc-cost">—</b><span data-ru="стоимость кирпича, ₸" data-kk="кірпіш құны, ₸">стоимость кирпича, ₸</span></div>
         </div>
         <a id="calc-wa" class="btn btn-brand" href="https://wa.me/77083541560" target="_blank" rel="noopener"><i aria-hidden="true" class="ph ph-whatsapp-logo"></i><span data-ru="Уточнить цену и скидку в WhatsApp" data-kk="WhatsApp-та баға мен жеңілдікті нақтылау">Уточнить цену и скидку в WhatsApp</span></a>
-        <p class="calc-note" data-ru="Расчёт примерный: ~64 кирпича на м², цена от 350 ₸/шт, 1 мешок клея на 500 кирпичей. Точную цену и оптовую скидку назовём по вашему объёму." data-kk="Есеп шамамен: м²-ге ~64 кірпіш, бағасы 350 ₸/данадан, 500 кірпішке 1 қап желім. Нақты баға мен көтерме жеңілдікті көлеміңізге қарай айтамыз.">Расчёт примерный: ~64 кирпича на м², цена от 350 ₸/шт, 1 мешок клея на 500 кирпичей. Точную цену и оптовую скидку назовём по вашему объёму.</p>
+        <p class="calc-note" data-ru="Расчёт примерный: 64,1 кирпича на м², цена от 350 ₸/шт, 1 мешок клея на 500 кирпичей. Точную цену и оптовую скидку назовём по вашему объёму." data-kk="Есеп шамамен: м²-ге 64,1 кірпіш, бағасы 350 ₸/данадан, 500 кірпішке 1 қап желім. Нақты баға мен көтерме жеңілдікті көлеміңізге қарай айтамыз.">Расчёт примерный: 64,1 кирпича на м², цена от 350 ₸/шт, 1 мешок клея на 500 кирпичей. Точную цену и оптовую скидку назовём по вашему объёму.</p>
       </div>
     </div>
   </section>

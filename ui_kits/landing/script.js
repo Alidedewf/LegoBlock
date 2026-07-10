@@ -24,10 +24,11 @@
     b.querySelector('i').className='ph ph-list';
   }
 
-  // material calculator: area -> bricks (~64/m², +5% reserve) + glue bags (1 per 500)
+  // material calculator: area -> bricks (64.1/m², rounded up) + glue bags (1 per 500)
+  var BRICKS_PER_M2 = 64.1;
   function calcMaterial(){
     var area=parseFloat(document.getElementById('calc-area').value)||0;
-    var bricks=area>0?Math.ceil(area*64*1.05):0;
+    var bricks=area>0?Math.ceil(area*BRICKS_PER_M2):0;
     var bags=area>0?Math.ceil(bricks/500):0;
     var cost=bricks*350;
     document.getElementById('calc-bricks').textContent=bricks?bricks.toLocaleString('ru-RU'):'—';
@@ -36,6 +37,62 @@
     if(costEl) costEl.textContent=cost?cost.toLocaleString('ru-RU'):'—';
     var body='Здравствуйте! Рассчитайте стоимость:\nПлощадь: '+area+' м²\nКирпич: ~'+bricks+' шт\nКлей: ~'+bags+' мешков\nОриентировочно: ~'+cost.toLocaleString('ru-RU')+' ₸ за кирпич';
     document.getElementById('calc-wa').href='https://wa.me/77083541560?text='+encodeURIComponent(body);
+  }
+
+  // building dimensions -> net masonry area -> bricks (64.1/m², rounded up).
+  // Writes the net area into the main area field so calcMaterial() recomputes
+  // the "Количество кирпичей" card and cost with the same 64.1 coefficient.
+  function calcDims(){
+    var ids = ['dim-length','dim-width','dim-height','win-width','win-height','win-count','door-width','door-height','door-count'];
+    var raw = {};
+    ids.forEach(function(id){ raw[id] = document.getElementById(id).value.trim(); });
+
+    var errPos = document.getElementById('dim-err-positive');
+    var errInt = document.getElementById('dim-err-integer');
+    var errOvf = document.getElementById('dim-err-overflow');
+    var resEl  = document.getElementById('dim-result');
+    var hideAll = function(){ errPos.hidden = true; errInt.hidden = true; errOvf.hidden = true; resEl.hidden = true; };
+
+    // neutral state until the user starts entering data
+    var anyEntered = ids.some(function(id){ return raw[id] !== ''; });
+    if(!anyEntered){ hideAll(); return; }
+
+    // counts must be integers
+    var isIntField = function(v){ return v !== '' && /^\d+$/.test(v); };
+    if((raw['win-count'] !== '' && !isIntField(raw['win-count'])) ||
+       (raw['door-count'] !== '' && !isIntField(raw['door-count']))){
+      hideAll(); errInt.hidden = false; return;
+    }
+
+    var v = {};
+    ids.forEach(function(id){ v[id] = parseFloat(raw[id]); });
+
+    // every value must be present and greater than 0
+    var allPositive = ids.every(function(id){ return v[id] > 0; });
+    if(!allPositive){ hideAll(); errPos.hidden = false; return; }
+
+    var wallArea    = (v['dim-length'] + v['dim-width']) * 2 * v['dim-height'];
+    var windowsArea = v['win-width'] * v['win-height'] * v['win-count'];
+    var doorsArea   = v['door-width'] * v['door-height'] * v['door-count'];
+
+    if(windowsArea + doorsArea > wallArea){
+      hideAll(); errOvf.hidden = false; return;
+    }
+
+    var netArea = wallArea - windowsArea - doorsArea;
+    var bricks = Math.ceil(netArea * BRICKS_PER_M2);
+
+    // push net area into the main calculator input and recompute bricks + cost
+    var areaEl = document.getElementById('calc-area');
+    areaEl.value = Math.round(netArea * 100) / 100;
+    calcMaterial();
+
+    hideAll();
+    var lang = (document.documentElement.lang === 'kk') ? 'kk' : 'ru';
+    resEl.textContent = (lang === 'kk')
+      ? 'Таза қалау ауданы: ' + netArea.toFixed(1) + ' м² · ' + bricks.toLocaleString('ru-RU') + ' кірпіш'
+      : 'Чистая площадь кладки: ' + netArea.toFixed(1) + ' м² · ' + bricks.toLocaleString('ru-RU') + ' кирпичей';
+    resEl.hidden = false;
   }
 
   // form -> WhatsApp deep link
