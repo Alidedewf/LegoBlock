@@ -27,7 +27,7 @@
   // material calculator: area -> bricks (64.1/m², rounded UP to the nearest 100)
   // + glue bags (1 per 500). Matches the reference spreadsheet: 7648 -> 7700.
   var BRICKS_PER_M2 = 64.1;
-  var PRICE_PER_BRICK = 350;
+  var PRICE_PER_BRICK = 300;
   function bricksFromArea(area){
     return area > 0 ? Math.ceil(area * BRICKS_PER_M2 / 100) * 100 : 0;
   }

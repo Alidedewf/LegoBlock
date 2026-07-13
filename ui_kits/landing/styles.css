@@ -347,6 +347,7 @@
     border-radius:12px;padding:10px 16px;box-shadow:var(--shadow-sm)}
   .hero-trust b{font-family:var(--font-display);font-weight:800;font-size:16px;color:var(--ink)}
   .hero-trust span:first-child b{color:var(--brand-deep)}
+  .hero-trust span:last-child{padding-right:34px}
   .hero-trust small{color:var(--concrete);font-size:12px;margin-top:2px}
 
   #calc{scroll-margin-top:90px}
