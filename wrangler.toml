@@ -1,0 +1,7 @@
+# Cloudflare Workers — статический сайт (Workers Assets).
+# Без этого файла `wrangler deploy` не находит статику и билд падает.
+name = "legoblock"
+compatibility_date = "2026-07-01"
+
+[assets]
+directory = "./ui_kits/landing"
