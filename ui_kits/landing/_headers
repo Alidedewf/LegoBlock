@@ -1,0 +1,25 @@
+# Cloudflare Pages — заголовки ответа
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+
+# HTML — не кэшируем, чтобы правки на сайте появлялись сразу
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Картинки и логотипы меняются редко
+/img/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# CSS/JS подключены с ?v=N — при бампе версии кэш сбрасывается сам
+/*.css
+  Cache-Control: public, max-age=3600
+
+/*.js
+  Cache-Control: public, max-age=3600
