@@ -41,7 +41,7 @@
     var costEl=document.getElementById('calc-cost');
     if(costEl) costEl.textContent=cost?cost.toLocaleString('ru-RU'):'—';
     var body='Здравствуйте! Рассчитайте стоимость:\nПлощадь: '+area+' м²\nКирпич: ~'+bricks+' шт\nКлей: ~'+bags+' мешков\nОриентировочно: ~'+cost.toLocaleString('ru-RU')+' ₸ за кирпич';
-    document.getElementById('calc-wa').href='https://wa.me/77083541560?text='+encodeURIComponent(body);
+    document.getElementById('calc-wa').href='https://wa.me/77027210843?text='+encodeURIComponent(body);
   }
 
   // building dimensions -> net masonry area -> bricks (64.1/m², rounded up).
@@ -107,7 +107,7 @@
     var body = 'Заявка с сайта LEGOBLOCK\n'
       + 'Имя: ' + name + '\n'
       + 'Телефон: ' + phone;
-    window.open('https://wa.me/77083541560?text=' + encodeURIComponent(body), '_blank');
+    window.open('https://wa.me/77027210843?text=' + encodeURIComponent(body), '_blank');
     return false;
   }
 
